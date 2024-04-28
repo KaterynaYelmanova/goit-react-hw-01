@@ -1,14 +1,11 @@
 import css from "./TransactionHistoryItem.module.css"
-export default function TransactionHistoryItem({ transactions }) {
+export default function TransactionHistoryItem({ transaction }) {
+    const {type, amount, currency} = transaction;
     return (
-        <>
-            {transactions.map(({ id, type, amount, currency }) => (
-                <tr className={css.tr} key={id}>
+                <tr className={css.tr}>
                     <td className={css.td}>{type}</td>
                     <td className={css.td}>{amount}</td>
                     <td className={css.td}>{currency}</td>
                 </tr>
-            ))}
-        </>
     );
 }
